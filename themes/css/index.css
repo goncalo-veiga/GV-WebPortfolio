@@ -1410,6 +1410,13 @@ form button:hover{
     object-fit: contain; /* Show the entire image while maintaining aspect ratio */
     transform: scale(1.1); /* Zoom out to show more of the image */
 }
+
+.project-icon {
+    width: 24px; /* Set your desired size for the icon */
+    height: auto;
+    object-fit: unset;
+    transition: none; /* Disable transition for the icon */
+}
   
   .project h2 {
     font-size: 22px;
@@ -1447,7 +1454,25 @@ form button:hover{
     padding: 10px;
     margin: 0;
   }
-  
+
+  .project-links img{
+    width: 24px; /* Set your desired size for the icon */
+    height: auto;
+    object-fit: unset;
+    transition: none; /* Disable transition for the icon */
+  }
+  .header-container {
+    display: flex;
+    justify-content: space-between; /* Align header to the left and icon to the right */
+    align-items: center; /* Vertically center the items */
+}
+
+  .header-container img{
+    width: 24px; /* Set the size for the GitHub icon */
+    height: auto;
+}
+
+
   .project-links li {
     position: relative;
     z-index: 2;
