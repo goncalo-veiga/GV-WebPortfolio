@@ -2,9 +2,24 @@ $(window).on('load',function(){
     gsap.to('#loader',1,{y:"-100%"});
   gsap.to('#loader',1,{opacity:0});
   gsap.to('#loader',0,{display:"none",delay:1});
-  gsap.to('#header',0,{display:"block",delay:1})
   gsap.to('#navigation-content',0,{display:"none"});
   gsap.to('#navigation-content',0,{display:"flex",delay:1});
+
+  // URL-based routing on page load / reload
+  var path = window.location.pathname;
+  if (path === '/about') {
+    gsap.to('#about',0,{display:"block",delay:1});
+  } else if (path === '/portfolio') {
+    gsap.to('#portfolio',0,{display:"block",delay:1});
+  } else if (path === '/coursework') {
+    gsap.to('#coursework',0,{display:"block",delay:1});
+  } else if (path === '/contact') {
+    gsap.to('#contact',0,{display:"block",delay:1});
+  } else if (path === '/blog') {
+    gsap.to('#blog',0,{display:"block",delay:1});
+  } else {
+    gsap.to('#header',0,{display:"block",delay:1});
+  }
 })
 $(function(){
   $('.color-panel').on("click",function(e) {
@@ -25,7 +40,7 @@ $(function(){
      $('.navigation-close').on('click',function(){
         gsap.to('#navigation-content',.6,{y:"-100%"});
     });
-   }); 
+   });
 
 $(function(){
     var TxtRotate = function(el, toRotate, period) {
@@ -37,24 +52,24 @@ $(function(){
         this.tick();
         this.isDeleting = false;
       };
-      
+
       TxtRotate.prototype.tick = function() {
         var i = this.loopNum % this.toRotate.length;
         var fullTxt = this.toRotate[i];
-      
+
         if (this.isDeleting) {
           this.txt = fullTxt.substring(0, this.txt.length - 1);
         } else {
           this.txt = fullTxt.substring(0, this.txt.length + 1);
         }
-      
+
         this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
-      
+
         var that = this;
         var delta = 200 - Math.random() * 100;
-      
+
         if (this.isDeleting) { delta /= 2; }
-      
+
         if (!this.isDeleting && this.txt === fullTxt) {
           delta = this.period;
           this.isDeleting = true;
@@ -63,12 +78,12 @@ $(function(){
           this.loopNum++;
           delta = 100;
         }
-      
+
         setTimeout(function() {
           that.tick();
         }, delta);
       };
-      
+
       window.onload = function() {
         var elements = document.getElementsByClassName('txt-rotate');
         for (var i=0; i<elements.length; i++) {
@@ -85,9 +100,28 @@ $(function(){
         document.body.appendChild(css);
       };
 })
+
+// Helper: show a section directly (no transition), used for popstate
+function showSectionByPath(path) {
+  var allSections = ['#header','#about','#portfolio','#coursework','#contact','#blog'];
+  allSections.forEach(function(s){ gsap.to(s,0,{display:"none"}); });
+  if (path === '/about') gsap.to('#about',0,{display:"block"});
+  else if (path === '/portfolio') gsap.to('#portfolio',0,{display:"block"});
+  else if (path === '/coursework') gsap.to('#coursework',0,{display:"block"});
+  else if (path === '/contact') gsap.to('#contact',0,{display:"block"});
+  else if (path === '/blog') gsap.to('#blog',0,{display:"block"});
+  else gsap.to('#header',0,{display:"block"});
+}
+
+$(window).on('popstate', function() {
+  showSectionByPath(window.location.pathname);
+});
+
 $(function(){
 
-    $('#about-link').on('click',function(){
+    $('#about-link').on('click',function(e){
+      e.preventDefault();
+      history.pushState({}, '', '/about');
       gsap.to('#navigation-content',0,{display:"none",delay:.7});
       gsap.to('#navigation-content',0,{y:'-100%',delay:.7});
       gsap.to('#header',0,{display:"none"});
@@ -102,7 +136,9 @@ $(function(){
       gsap.to('#about',0,{display:"block",delay:.7});
       gsap.to('#navigation-content',0,{display:'flex',delay:2});
  })
- $('#contact-link').on('click',function(){
+ $('#contact-link').on('click',function(e){
+   e.preventDefault();
+   history.pushState({}, '', '/contact');
    gsap.to('#navigation-content',0,{display:"none",delay:.7});
    gsap.to('#navigation-content',0,{y:'-100%',delay:.7});
 gsap.to('#header',0,{display:"none"});
@@ -117,7 +153,9 @@ gsap.to('#breaker-two',0,{display:"none",delay:2});
 gsap.to('#contact',0,{display:"block",delay:.7});
 gsap.to('#navigation-content',0,{display:'flex',delay:2});
 })
-$('#portfolio-link').on('click',function(){
+$('#portfolio-link').on('click',function(e){
+  e.preventDefault();
+  history.pushState({}, '', '/portfolio');
   gsap.to('#navigation-content',0,{display:"none",delay:.7});
   gsap.to('#navigation-content',0,{y:'-100%',delay:.7});
 gsap.to('#header',0,{display:"none"});
@@ -132,7 +170,9 @@ gsap.to('#breaker-two',0,{display:"none",delay:2});
 gsap.to('#portfolio',0,{display:"block",delay:.7});
 gsap.to('#navigation-content',0,{display:'flex',delay:2});
 })
-$('#coursework-link').on('click',function(){
+$('#coursework-link').on('click',function(e){
+  e.preventDefault();
+  history.pushState({}, '', '/coursework');
   gsap.to('#navigation-content',0,{display:"none",delay:.7});
   gsap.to('#navigation-content',0,{y:'-100%',delay:.7});
   gsap.to('#header',0,{display:"none"});
@@ -146,7 +186,9 @@ $('#coursework-link').on('click',function(){
   gsap.to('#coursework',0,{display:"block",delay:.7});
   gsap.to('#navigation-content',0,{display:'flex',delay:2});
 })
-$('#blog-link').on('click',function(){
+$('#blog-link').on('click',function(e){
+  e.preventDefault();
+  history.pushState({}, '', '/blog');
   gsap.to('#navigation-content',0,{display:"none",delay:.7});
   gsap.to('#navigation-content',0,{y:'-100%',delay:.7});
 gsap.to('#header',0,{display:"none"});
@@ -161,7 +203,9 @@ gsap.to('#breaker-two',0,{display:"none",delay:2});
 gsap.to('#blog',0,{display:"block",delay:.7});
 gsap.to('#navigation-content',0,{display:'flex',delay:2});
 })
-$('#home-link').on('click',function(){
+$('#home-link').on('click',function(e){
+  e.preventDefault();
+  history.pushState({}, '', '/');
   gsap.to('#navigation-content',0,{display:"none",delay:.7});
   gsap.to('#navigation-content',0,{y:'-100%',delay:.7});
 gsap.to('#header',0,{display:"none"});
@@ -183,11 +227,11 @@ $(function(){
  var body =  document.querySelector('body');
  var $cursor = $('.cursor')
    function cursormover(e){
-    
     gsap.to( $cursor, {
       x : e.clientX ,
       y : e.clientY,
-      stagger:.002
+      duration: 0.06,
+      ease: "none"
      })
    }
    function cursorhover(e){
@@ -195,19 +239,19 @@ $(function(){
      scale:1.4,
      opacity:1
     })
-    
+
   }
   function cursor(e){
     gsap.to( $cursor, {
      scale:1,
      opacity:.6
-    }) 
+    })
   }
 
   $(window).on('mousemove',cursormover);
   $('.menubar').hover(cursorhover,cursor);
   $('a').hover(cursorhover,cursor);
-  $('.clickable-text').hover(cursorhover, cursor); 
+  $('.clickable-text').hover(cursorhover, cursor);
   $('.navigation-close').hover(cursorhover,cursor);
 
 })

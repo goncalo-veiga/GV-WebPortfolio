@@ -1,41 +1,49 @@
-const pages = ['home', 'about', 'portfolio', 'coursework', 'contact'];
+// Actual DOM element IDs for all sections
+const sectionIds = ['header', 'about', 'portfolio', 'coursework', 'contact'];
+
+// URL path segment → element ID
+const pathToId = {
+  'home':       'header',
+  'about':      'about',
+  'portfolio':  'portfolio',
+  'coursework': 'coursework',
+  'contact':    'contact',
+};
 
 function show(page) {
-  // Hide all pages
-  pages.forEach(p => {
-    const el = document.getElementById(p);
-    if (el) {
-      el.style.display = 'none';
-    }
+  // Hide all sections using actual element IDs
+  sectionIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = 'none';
   });
 
+  // Resolve element ID (home → header)
+  const elementId = pathToId[page] || page;
+
   // GSAP transition animation
-    gsap.to('#breaker', { duration: 0.5, x: '0%', ease: 'power2.inOut' });
-    gsap.to('#breaker-two', { 
-        duration: 0.5, 
-        x: '0%', 
-        ease: 'power2.inOut', 
-        delay: 0.1,
-        onComplete: () => {
-      // Show the target page after animation
-      const targetEl = document.getElementById(page);
-      if (targetEl) {
-        targetEl.style.display = 'block';
-      }
-            
-      // Complete the transition animation
-            gsap.to('#breaker', { duration: 0.5, x: '100%', delay: 0.5 });
-            gsap.to('#breaker-two', { duration: 0.5, x: '100%', delay: 0.6 });
-            
-            window.scrollTo(0, 0);
-        }
-    });
+  gsap.to('#breaker', { duration: 0.5, x: '0%', ease: 'power2.inOut' });
+  gsap.to('#breaker-two', {
+    duration: 0.5,
+    x: '0%',
+    ease: 'power2.inOut',
+    delay: 0.1,
+    onComplete: () => {
+      const targetEl = document.getElementById(elementId);
+      if (targetEl) targetEl.style.display = 'block';
+
+      gsap.to('#breaker', { duration: 0.5, x: '100%', delay: 0.5 });
+      gsap.to('#breaker-two', { duration: 0.5, x: '100%', delay: 0.6 });
+
+      window.scrollTo(0, 0);
+    }
+  });
 }
 
 function handleNavigation(e) {
-    e.preventDefault();
-    const target = this.getAttribute('data-target').replace('#', '');
-  history.pushState({}, '', `/${target}`);
+  e.preventDefault();
+  const target = this.getAttribute('data-target').replace('#', '');
+  const url = target === 'home' ? '/' : `/${target}`;
+  history.pushState({}, '', url);
   show(target);
 }
 
@@ -51,14 +59,15 @@ function initRouter() {
 }
 
 function route() {
-    const path = window.location.pathname.replace('/', '') || 'home';
-    if (pages.includes(path)) {
+  // Remove leading slash; '/' becomes '' which we treat as 'home'
+  const path = window.location.pathname.replace(/^\//, '') || 'home';
+  if (pathToId.hasOwnProperty(path)) {
     show(path);
-    } else {
-    // Handle 404 - redirect to home
-    history.replaceState({}, '', '/home');
+  } else {
+    // Unknown path → redirect to home at '/'
+    history.replaceState({}, '', '/');
     show('home');
-    }
+  }
 }
 
 // Initialize when DOM is ready

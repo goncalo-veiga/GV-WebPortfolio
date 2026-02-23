@@ -36,7 +36,7 @@
           <!--Header-->
           <div class="centered-container"> <!-- New container for centering -->
             <nav>
-              <a href="/home" class="clickable-text" id="home-link" data-target="#home">Home</a>
+              <a href="/" class="clickable-text" id="home-link" data-target="#home">Home</a>
               <a href="/about" class="clickable-text" id="about-link" data-target="#about">About</a>
               <a href="/portfolio" class="clickable-text" id="portfolio-link" data-target="#portfolio">Portfolio</a>
               <a href="/coursework" class="clickable-text" id="coursework-link" data-target="#coursework">Coursework</a>
@@ -83,46 +83,49 @@
                     <span class ="header-caption">Get to Know <span class="color"> me.</span></span>
                 </div>
                 <div class="about-main">
-                    <div class="about-first-paragraph wow">
-                    <!--about description-->
-                    <span class="about-first-line">
-                            I'm 
-                            <span class="color">software engineer</span>
-                            based in Lisbon , Portugal.</span>
-                            <br>
-                    <span class="about-second-line"> Currently a MSc Computer Science Engineering student (graduating 2026), looking for internships and new grad positions.<br> Passionate about cutting-edge technologies, making better software and video-games!</span>
-                    <!--
-                    <div class="cv">
-                        <a href="files/resume.pdf" download="gv-resume.pdf"><button>Download <span class="colors">Resume</span></button></a>
-                        </div>-->
+                    <div class="about-text-col">
+                        <div class="about-first-paragraph wow">
+                        <!--about description-->
+                        <span class="about-first-line">
+                                I'm
+                                <span class="color">software engineer</span>
+                                based in Lisbon , Portugal.</span>
+                                <br>
+                        <span class="about-second-line"> Currently a MSc Computer Science Engineering student (graduating 2026), looking for internships and new grad positions.<br> Passionate about cutting-edge technologies, making better software and video-games!</span>
+                        <!--
+                        <div class="cv">
+                            <a href="files/resume.pdf" download="gv-resume.pdf"><button>Download <span class="colors">Resume</span></button></a>
+                            </div>-->
+                        </div>
                     </div>
-                    
-                </div>
-                <!-- Certifications -->
-                <div class="certifications">
-                  <h2 class="cert-title">Certifications</h2>
+                    <div class="about-certs-col">
+                        <!-- Certifications -->
+                        <div class="certifications">
+                          <h2 class="cert-title">Certifications</h2>
 
-                  <div class="cert-row">
-                      <div class="cert-card nvidia">
-                      <h3>Building RAG Agents with LLMs</h3>
-                      <p class="issuer">NVIDIA DLI &nbsp;&bull;&nbsp; Ongoing</p>
-                      <a  class="cert-btn"></a>
-                      </div>
+                          <div class="cert-row">
+                              <div class="cert-card nvidia">
+                              <h3>Building RAG Agents with LLMs</h3>
+                              <p class="issuer">NVIDIA DLI &nbsp;&bull;&nbsp; Ongoing</p>
+                              <a  class="cert-btn"></a>
+                              </div>
 
-                      <div class="cert-card nvidia">
-                      <h3>Building LLM Applications With Prompt Engineering</h3>
-                      <p class="issuer">NVIDIA DLI &nbsp;&bull;&nbsp; Issued Dec 2025</p>
-                      <p class="issuer">Credential ID: v4rq1bLWQO-q2Ymc5WeYfw</p>
-                      <a href="https://learn.nvidia.com/certificates?id=OH-oIufYTcG-0OWGmqaF8w#" target="_blank" class="cert-btn">View →</a>
-                      </div>
+                              <div class="cert-card nvidia">
+                              <h3>Building LLM Applications With Prompt Engineering</h3>
+                              <p class="issuer">NVIDIA DLI &nbsp;&bull;&nbsp; Issued Dec 2025</p>
+                              <p class="issuer">Credential ID: v4rq1bLWQO-q2Ymc5WeYfw</p>
+                              <a href="https://learn.nvidia.com/certificates?id=OH-oIufYTcG-0OWGmqaF8w#" target="_blank" class="cert-btn">View →</a>
+                              </div>
 
-                      <div class="cert-card udemy">
-                      <h3>Python for DS & ML Bootcamp</h3>
-                      <p class="issuer">Udemy &nbsp;&bull;&nbsp; Issued Dec 2022</p>
-                      <p class="issuer">Credential ID: UC-643ceebc-c43b-488c-850e-f2202aa1231f</p>
-                      <a href="https://www.udemy.com/certificate/UC-643ceebc-c43b-488c-850e-f2202aa1231f/" target="_blank" class="cert-btn">View →</a>
-                      </div>
-                  </div>
+                              <div class="cert-card udemy">
+                              <h3>Python for DS & ML Bootcamp</h3>
+                              <p class="issuer">Udemy &nbsp;&bull;&nbsp; Issued Dec 2022</p>
+                              <p class="issuer">Credential ID: UC-643ceebc-c43b-488c-850e-f2202aa1231f</p>
+                              <a href="https://www.udemy.com/certificate/UC-643ceebc-c43b-488c-850e-f2202aa1231f/" target="_blank" class="cert-btn">View →</a>
+                              </div>
+                          </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -542,6 +545,7 @@
             </div>
 
             <!-- AI AREA -->
+            <div class="cw-section cw-ai">
             <h2 class="coursework-area">Artificial Intelligence</h2>
             <div class="coursework-grid">
                 <div class="course-card">
@@ -560,8 +564,10 @@
                     <h3>Data Analysis and Statistical Modelling </h3>
                 </div>
             </div>
+            </div>
 
   <!-- GAME DEV AREA -->
+  <div class="cw-section cw-games">
   <h2 class="coursework-area">Video Games Development</h2>
   <div class="coursework-grid">
       <div class="course-card">
@@ -579,11 +585,11 @@
       <div class="course-card">
           <h3>Multimedia Content Production</h3>
       </div>
-
-
+  </div>
   </div>
 
   <!-- 1. Core Computer Science & Software Engineering -->
+  <div class="cw-section cw-cs">
   <h2 class="coursework-area">Core Computer Science & Software Engineering</h2>
   <div class="coursework-grid">
     <div class="course-card">
@@ -614,8 +620,10 @@
       <h3>Foundations of Programming</h3>
     </div>
   </div>
+  </div>
 
   <!-- 2. DevOps, Cloud & Data Engineering -->
+  <div class="cw-section cw-devops">
   <h2 class="coursework-area">DevOps, Cloud & Data Engineering</h2>
   <div class="coursework-grid">
     <div class="course-card">
@@ -634,8 +642,10 @@
       <h3>Distributed Systems</h3>
     </div>
   </div>
+  </div>
 
   <!-- 3. Mathematics & Engineering Foundations -->
+  <div class="cw-section cw-math">
   <h2 class="coursework-area">Mathematics & Engineering Foundations</h2>
   <div class="coursework-grid">
     <div class="course-card">
@@ -661,10 +671,11 @@
     <div class="course-card">
       <h3>Discrete Mathematics</h3>
     </div>
-
+  </div>
   </div>
 
   <!-- 4. Network & Telecommunications Engineering -->
+  <div class="cw-section cw-network">
   <h2 class="coursework-area">Network & Telecommunications Engineering</h2>
   <div class="coursework-grid">
     <div class="course-card">
@@ -695,8 +706,10 @@
       <h3>Introduction to Telecommunications and Computer Engineering </h3>
     </div>
   </div>
+  </div>
 
   <!-- 5. Economics & Social Context -->
+  <div class="cw-section cw-econ">
   <h2 class="coursework-area">Economics & Social Context</h2>
   <div class="coursework-grid">
     <div class="course-card">
@@ -706,6 +719,7 @@
     <div class="course-card">
       <h3>City Management: Challenges and Conflicts</h3>
     </div>
+  </div>
   </div>
         </div>
         <!-- coursework end -->
@@ -750,7 +764,6 @@
         <!--contact end-->
     </div>
     <!--all the divisions-->
-    <script src="main.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/particles.js"></script>
     <script src="js/particles.min.js"></script>
