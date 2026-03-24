@@ -178,24 +178,32 @@ input[type=number] {
 
 .centered-container nav {
   display: flex;
-  gap: 28px;
+  gap: 6px;
   white-space: nowrap;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 14px;
+  padding: 6px;
 }
 
 .clickable-text {
   white-space: nowrap;
-  padding: 0 20px;
-  color: var(--text-light);
-  margin-right: 20px;
+  padding: 10px 22px;
+  color: rgba(255, 255, 255, 0.55);
   font-family: 'Poppins', sans-serif;
-  opacity: .8;
-  font-size: 30px;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.3px;
   cursor: pointer;
-  transition: opacity .3s ease;
+  border-radius: 10px;
+  transition: color .25s ease, background .25s ease;
+  text-decoration: none;
 }
 
 .clickable-text:hover {
-  opacity: 0.5;
+  color: var(--text-light);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 /* ===== SOCIAL MEDIA ===== */
@@ -479,7 +487,7 @@ input[type=number] {
   font-size: 22px;
   font-family: 'Poppins', sans-serif;
   font-weight: 200;
-  padding: 4px;
+  padding: 0 4px;
   color: var(--primary-color);
 }
 
@@ -568,9 +576,12 @@ input[type=number] {
 }
 
 .header-container img {
-  height: 1.2em; /* equals h2 line-height */
   width: 24px;
-  height: 24px;   /* explicit height for perfect centering */
+  height: 24px;
+  margin-bottom: 0;
+  border-radius: 0;
+  object-fit: contain;
+  transition: none;
 }
 
 .team-size {
@@ -579,6 +590,84 @@ input[type=number] {
   border-radius: 20px;
   font-size: 14px;
   color: #bbb;
+}
+
+/* ===== HIGHLIGHTED PROJECT CARD ===== */
+@property --aura-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.project.project-highlight {
+  position: relative;
+  overflow: visible;
+  border: none;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.project.project-highlight::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 18px;
+  background: conic-gradient(
+    from var(--aura-angle, 0deg),
+    #7c3aed,
+    #a855f7,
+    #c084fc,
+    #7c3aed,
+    #6d28d9,
+    #a855f7,
+    #7c3aed
+  );
+  z-index: -1;
+  animation: aura-rotate 4s linear infinite;
+  opacity: 0.7;
+  filter: blur(4px);
+}
+
+.project.project-highlight::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 16px;
+  background: rgba(23, 23, 23, 0.95);
+  z-index: -1;
+}
+
+.project.project-highlight h2 {
+  color: #a855f7;
+}
+
+.project.project-highlight h2 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.project.project-highlight h2 a:hover {
+  text-decoration: underline;
+}
+
+.project.project-highlight:hover {
+  box-shadow: 0 10px 40px rgba(124, 58, 237, 0.3);
+}
+
+.project.project-highlight:hover::before {
+  opacity: 1;
+  filter: blur(6px);
+}
+
+@keyframes aura-rotate {
+  from { --aura-angle: 0deg; }
+  to { --aura-angle: 360deg; }
 }
 
 /* ===== COURSEWORK ===== */
@@ -738,12 +827,13 @@ input[type=number] {
 }
 
 .cert-card.udemy::before,
-.cert-card.nvidia::before {
+.cert-card.nvidia::before,
+.cert-card.anthropic::before {
   content: '';
   position: absolute;
   inset: 0;
   opacity: .10;
-  background-size: 55% auto;
+  background-size: 120px auto;
   background-position: center;
   background-repeat: no-repeat;
   z-index: -1;
@@ -757,6 +847,10 @@ input[type=number] {
   background-image: url('../images/nvidia.png');
 }
 
+.cert-card.anthropic::before {
+  background-image: url('../images/anthropic.jpg');
+}
+
 .cert-card h3 {
   font-family: 'Poppins', sans-serif;
   font-size: 18px;
@@ -768,6 +862,7 @@ input[type=number] {
   font-size: 13px;
   opacity: .7;
   margin-bottom: 12px;
+  user-select: text;
 }
 
 .cert-btn {
