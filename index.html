@@ -17,11 +17,18 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <!--main css file-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
-    <!-- Vercel Analytics -->
-    <script>
-      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    <!-- Vercel Analytics via ES Modules (No Bundler Required) -->
+    <script type="importmap">
+      {
+        "imports": {
+          "@vercel/analytics": "https://esm.sh/@vercel/analytics"
+        }
+      }
     </script>
-    <script defer src="/_vercel/insights/script.js"></script>
+    <script type="module">
+      import { inject } from "@vercel/analytics";
+      inject();
+    </script>
 </head>
 <body>
     <!--contains all the div-->
