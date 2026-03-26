@@ -66,6 +66,7 @@ input::-webkit-inner-spin-button {
 
 input[type=number] {
   -moz-appearance: textfield;
+  appearance: textfield;
 }
 
 /* ===== LOADER ===== */
@@ -1213,10 +1214,34 @@ form button:hover {
     letter-spacing: 2px;
   }
   
+  .header-content .firstline {
+    font-size: 42px;
+  }
+  
+  .header-content .secondline {
+    font-size: 18px;
+  }
+  
   .contact {
     display: none;
   }
   
+  .centered-container {
+    width: 95%;
+  }
+
+  .centered-container nav {
+    gap: 2px;
+    padding: 2px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .clickable-text {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
   .header-image {
     width: 0%;
   }
@@ -1280,6 +1305,20 @@ form button:hover {
   
   .service-img img {
     height: 80px;
+  }
+
+  /* Improved portfolio mobile view */
+  .project-container {
+    padding: 0 10px;
+  }
+
+  .project {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  
+  .project img {
+    height: 220px;
   }
   
   .portfolio {
@@ -1415,6 +1454,15 @@ form button:hover {
     width: 45%;
     height: auto;
     padding: 10px;
+  }
+
+  /* Improved portfolio tablet view */
+  .project-container {
+    padding: 0 10px;
+  }
+
+  .project {
+    width: 48%; /* 2 per row */
   }
   
   .service-description h2 {
