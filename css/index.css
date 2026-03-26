@@ -1208,6 +1208,35 @@ form button:hover {
 /* ===== RESPONSIVE DESIGN ===== */
 @media only screen and (max-width: 768px) {
 
+  /* --- Navigation --- */
+  #navigation-bar {
+    height: auto;
+    min-height: 50px;
+    padding: 6px 4px;
+    overflow: visible;
+  }
+
+  .centered-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+  }
+
+  .centered-container nav {
+    gap: 0;
+    padding: 4px;
+    justify-content: center;
+    flex-wrap: nowrap;
+  }
+
+  .clickable-text {
+    padding: 6px 8px;
+    font-size: 11px;
+    letter-spacing: 0;
+  }
+
   /* --- Header & Hero --- */
   .header-content {
     font-size: 32px;
@@ -1237,32 +1266,24 @@ form button:hover {
     width: 0%;
   }
 
-  /* --- Navigation --- */
-  .centered-container {
-    width: 96%;
-    top: 10px;
-  }
-
-  .centered-container nav {
-    gap: 2px;
-    padding: 4px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .clickable-text {
-    padding: 7px 12px;
-    font-size: 12px;
-  }
-
-  /* --- Social Media --- */
+  /* --- Social Media (below hero text on mobile) --- */
   .social-media-links {
     height: auto;
-    position: relative;
-    width: 100%;
+    position: absolute;
+    bottom: 30px;
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
     padding: 10px;
     flex-direction: row;
     justify-content: center;
+    gap: 6px;
+  }
+
+  .social-media {
+    width: 24px;
+    opacity: .7;
   }
 
   /* --- Breaker --- */
@@ -1522,6 +1543,55 @@ form button:hover {
 
   .hire-me-section {
     display: none;
+  }
+}
+
+/* Extra-small phones (iPhone SE, Galaxy S Mini, etc.) */
+@media only screen and (max-width: 400px) {
+  .clickable-text {
+    padding: 5px 6px;
+    font-size: 10px;
+  }
+
+  .header-content .firstline {
+    font-size: 28px;
+  }
+
+  .header-content .secondline {
+    font-size: 14px;
+  }
+
+  .project > img {
+    height: 100px;
+  }
+
+  .project h2 {
+    font-size: 13px;
+  }
+
+  .project p {
+    font-size: 11px;
+  }
+
+  .tech-badge {
+    font-size: 9px;
+    padding: 2px 4px;
+  }
+
+  .about-first-line {
+    font-size: 20px;
+  }
+
+  .about-first-paragraph .color {
+    font-size: 22px;
+  }
+
+  .coursework-area {
+    font-size: 18px;
+  }
+
+  .course-card h3 {
+    font-size: 13px;
   }
 }
 
