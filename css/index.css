@@ -440,15 +440,14 @@ input[type=number] {
 .project-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  gap: 20px;
+  padding: 0 2%;
 }
 
 .project {
-  width: 32%;
-  margin-bottom: 20px;
-  padding: 14px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  flex: 1 1 calc(33.333% - 20px);
+  max-width: calc(33.333% - 14px);
+  margin-bottom: 0;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
@@ -1207,77 +1206,97 @@ form button:hover {
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
-@media only screen and (max-width: 550px) {
-  /* Mobile styles */
+@media only screen and (max-width: 768px) {
+
+  /* --- Header & Hero --- */
   .header-content {
-    font-size: 40px;
-    letter-spacing: 2px;
+    font-size: 32px;
+    letter-spacing: 1px;
+    padding-right: 0;
   }
-  
+
   .header-content .firstline {
-    font-size: 42px;
+    font-size: 36px;
   }
-  
+
   .header-content .secondline {
-    font-size: 18px;
+    font-size: 16px;
+    padding-top: 10px;
   }
-  
-  .contact {
+
+  .header-content .contact {
     display: none;
   }
-  
-  .centered-container {
-    width: 95%;
-  }
 
-  .centered-container nav {
-    gap: 2px;
-    padding: 2px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .clickable-text {
-    padding: 6px 10px;
-    font-size: 12px;
+  .header-content-box {
+    padding-right: 0;
+    width: 100%;
   }
 
   .header-image {
     width: 0%;
   }
-  
+
+  /* --- Navigation --- */
+  .centered-container {
+    width: 96%;
+    top: 10px;
+  }
+
+  .centered-container nav {
+    gap: 2px;
+    padding: 4px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .clickable-text {
+    padding: 7px 12px;
+    font-size: 12px;
+  }
+
+  /* --- Social Media --- */
   .social-media-links {
+    height: auto;
+    position: relative;
     width: 100%;
-    left: 0;
-    bottom: 0;
     padding: 10px;
     flex-direction: row;
+    justify-content: center;
   }
-  
-  .header-content-box {
-    padding-right: 0;
-  }
-  
+
+  /* --- Breaker --- */
   #breaker {
     height: 50vh;
   }
-  
+
+  /* --- About Section --- */
+  .about-header {
+    font-size: 32px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+  }
+
   .about-first-paragraph {
-    width: 95%;
+    width: 100%;
     padding: 10px;
   }
 
   .about-first-line {
-    font-size: 28px;
+    font-size: 24px;
+  }
+
+  .about-first-paragraph .color {
+    font-size: 26px;
   }
 
   .about-second-line {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .about-main {
     padding: 0 10px;
-    gap: 0;
+    gap: 20px;
     flex-direction: column;
   }
 
@@ -1287,80 +1306,194 @@ form button:hover {
     width: 100%;
   }
 
-  .about-img img {
-    width: 280px;
-    height: 220px;
-    padding: 5px;
+  /* --- Services --- */
+  .services-content {
+    padding: 10px 0;
   }
 
-  .about-img {
-    width: 100%;
-    height: 250px;
-  }
-  
   .service {
     width: 90%;
-    height: 320px;
-  }
-  
-  .service-img img {
-    height: 80px;
+    height: auto;
+    min-height: 280px;
+    margin: 8px auto;
+    display: block;
   }
 
-  /* Improved portfolio mobile view */
+  .service-img img {
+    height: 70px;
+    margin: 15px;
+  }
+
+  .service-description h2 {
+    font-size: 20px;
+    padding: 6px;
+  }
+
+  .service-description p {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+
+  /* --- Certifications --- */
+  .cert-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .cert-row {
+    gap: 12px;
+  }
+
+  .cert-card {
+    flex: 1 1 calc(50% - 12px);
+    max-width: calc(50% - 6px);
+    padding: 16px 14px;
+  }
+
+  .cert-card h3 {
+    font-size: 14px;
+  }
+
+  .cert-card .issuer {
+    font-size: 11px;
+  }
+
+  /* --- Portfolio Section --- */
+  #portfolio {
+    padding: 10px;
+    padding-top: 40px;
+  }
+
+  .portfolio-header {
+    font-size: 32px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+  }
+
   .project-container {
-    padding: 0 10px;
+    gap: 12px;
+    padding: 0 4px;
   }
 
   .project {
-    width: 100%;
-    margin-bottom: 30px;
+    flex: 1 1 calc(50% - 12px);
+    max-width: calc(50% - 6px);
+    padding: 12px;
   }
-  
+
   .project img {
-    height: 220px;
+    height: 120px;
+    border-radius: 8px;
+    margin-bottom: 8px;
   }
-  
-  .portfolio {
+
+  .project h2 {
+    font-size: 15px;
+    line-height: 1.3;
+  }
+
+  .project h4 {
+    font-size: 11px;
     flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
   }
-  
-  .portfolio-text {
-    width: 90%;
-    margin-left: 0;
-    margin-top: 0;
+
+  .project p {
+    font-size: 12px;
+    line-height: 1.35;
+    margin-bottom: 4px;
   }
-  
-  .portfolio-text h2 {
-    font-size: 22px;
+
+  .tech-stack {
+    gap: 4px;
+    margin: 6px 0;
   }
-  
-  .portfolio-text p {
+
+  .tech-badge {
+    font-size: 10px;
+    padding: 2px 6px;
+  }
+
+  .tech-badge i {
+    font-size: 10px;
+  }
+
+  .team-size {
+    font-size: 10px;
+    padding: 1px 6px;
+  }
+
+  .header-container img {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* --- Highlighted Project --- */
+  .project.project-highlight {
+    flex: 1 1 100%;
+    max-width: 100%;
+    padding: 16px;
+  }
+
+  .project.project-highlight img {
+    height: 180px;
+  }
+
+  .project.project-highlight h2 {
+    font-size: 18px;
+  }
+
+  .project.project-highlight p {
+    font-size: 13px;
+  }
+
+  /* --- Coursework Section --- */
+  #coursework {
+    padding: 10px;
+    padding-top: 40px;
+  }
+
+  .coursework-header {
+    font-size: 32px;
+    padding: 40px 0 20px;
+  }
+
+  .coursework-area {
+    font-size: 20px;
+    margin: 24px 0 14px;
+    padding-left: 12px;
+  }
+
+  .coursework-grid {
+    gap: 10px;
+    padding: 0 8px 30px;
+  }
+
+  .course-card {
+    flex: 1 1 calc(50% - 10px);
+    max-width: calc(50% - 5px);
+    padding: 16px;
+  }
+
+  .course-card h3 {
     font-size: 15px;
   }
-  
-  .cursor {
-    display: none;
+
+  /* --- Contact Section --- */
+  #contact {
+    height: auto;
+    min-height: 70vh;
+    padding-top: 30px;
   }
-  
-  .portfolio-image img {
-    height: 300px;
+
+  .contact-header {
+    font-size: 32px;
+    padding-top: 40px;
   }
-  
-  .portfolio-image {
-    width: 90%;
-    height: 300px;
-  }
-  
-  #navigation-bar img {
-    display: none;
-  }
-  
-  .blogs {
-    width: 90%;
-  }
-  
+
   .contact-content {
+    width: 95%;
     flex-direction: column;
   }
 
@@ -1374,23 +1507,17 @@ form button:hover {
     padding: 10px;
   }
 
-  .contact-form {
-    width: 90%;
-    padding-right: 0;
-  }
-
-  .input-line {
-    flex-direction: column;
-  }
-
-  .input-name,
-  .input-subject,
-  .input-textarea {
-    width: 90%;
-  }
-
   .contect-info-content-line {
     margin-left: 5%;
+  }
+
+  /* --- Cursor (hide on touch) --- */
+  .cursor {
+    display: none;
+  }
+
+  #navigation-bar img {
+    display: none;
   }
 
   .hire-me-section {
@@ -1398,7 +1525,7 @@ form button:hover {
   }
 }
 
-@media all and (max-width: 1025px) and (min-width: 551px) {
+@media all and (max-width: 1150px) and (min-width: 769px) {
   /* Tablet styles */
   .header-content {
     font-size: 40px;
@@ -1458,11 +1585,13 @@ form button:hover {
 
   /* Improved portfolio tablet view */
   .project-container {
+    gap: 16px;
     padding: 0 10px;
   }
 
   .project {
-    width: 48%; /* 2 per row */
+    flex: 1 1 calc(50% - 16px);
+    max-width: calc(50% - 8px);
   }
   
   .service-description h2 {
