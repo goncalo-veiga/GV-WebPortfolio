@@ -462,7 +462,7 @@ input[type=number] {
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
 }
 
-.project img {
+.project > img {
   width: 100%;
   height: 200px;
   object-fit: cover;
@@ -471,7 +471,7 @@ input[type=number] {
   transition: transform 0.5s ease, object-fit 0.5s ease;
 }
 
-.project img:hover {
+.project > img:hover {
   object-fit: contain;
   transform: scale(1.1);
 }
@@ -1381,7 +1381,7 @@ form button:hover {
     padding: 12px;
   }
 
-  .project img {
+  .project > img {
     height: 120px;
     border-radius: 8px;
     margin-bottom: 8px;
@@ -1436,7 +1436,7 @@ form button:hover {
     padding: 16px;
   }
 
-  .project.project-highlight img {
+  .project.project-highlight > img {
     height: 180px;
   }
 
