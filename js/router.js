@@ -11,7 +11,7 @@ const pathToId = {
 };
 
 function show(page) {
-  // Hide all sections using actual element IDs
+  // Hide all sections
   sectionIds.forEach(id => {
     const el = document.getElementById(id);
     if (el) el.style.display = 'none';
@@ -19,24 +19,20 @@ function show(page) {
 
   // Resolve element ID (home → header)
   const elementId = pathToId[page] || page;
+  const targetEl = document.getElementById(elementId);
 
-  // GSAP transition animation
-  gsap.to('#breaker', { duration: 0.5, x: '0%', ease: 'power2.inOut' });
-  gsap.to('#breaker-two', {
-    duration: 0.5,
-    x: '0%',
-    ease: 'power2.inOut',
-    delay: 0.1,
-    onComplete: () => {
-      const targetEl = document.getElementById(elementId);
-      if (targetEl) targetEl.style.display = 'block';
+  if (targetEl) {
+    targetEl.style.display = 'block';
+    // Trigger reflow so removing the class is visible before re-adding it
+    targetEl.classList.remove('section-enter');
+    void targetEl.offsetWidth;
+    targetEl.classList.add('section-enter');
+  }
 
-      gsap.to('#breaker', { duration: 0.5, x: '100%', delay: 0.5 });
-      gsap.to('#breaker-two', { duration: 0.5, x: '100%', delay: 0.6 });
+  window.scrollTo(0, 0);
 
-      window.scrollTo(0, 0);
-    }
-  });
+  // Dim + blur particles on non-home pages; full on home
+  document.body.classList.toggle('particles-bg', elementId !== 'header');
 }
 
 function handleNavigation(e) {
@@ -53,7 +49,7 @@ function initRouter() {
     link.addEventListener('click', handleNavigation);
   });
 
-  // Handle initial load and back/forward navigation
+  // Handle browser back/forward navigation
   window.addEventListener('popstate', route);
   route();
 }
