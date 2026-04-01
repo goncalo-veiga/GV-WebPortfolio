@@ -31,6 +31,8 @@
     </script>
 </head>
 <body>
+    <div id="site-bg"></div>
+    <div id="particles"></div>
     <!--contains all the div-->
     <div id="all">
     <!--mouse  follower-->
@@ -55,7 +57,6 @@
           </nav>
           </div>
         <div id="header">
-            <div id="particles"></div>
               <!--Social Media Links-->
             <div class="social-media-links">
         
@@ -98,11 +99,14 @@
                         <div class="about-first-paragraph wow">
                         <!--about description-->
                         <span class="about-first-line">
-                                I'm
-                                <span class="color">software engineer</span>
-                                based in Lisbon , Portugal.</span>
+                                I'm a <span class="color">software engineer</span>
+                                based in Lisbon, Portugal.</span>
                                 <br>
-                        <span class="about-second-line"> Currently a MSc Computer Science Engineering student (graduating 2026), looking for internships and new grad positions.<br> Passionate about cutting-edge technologies, making better software and video-games!</span>
+                        <span class="about-second-line">
+                                I'm passionate about building reliable, scalable, and thoughtful systems. I enjoy solving complex problems through clean architecture, strong fundamentals, and a focus on user and developer experience. My work spans backend development, full-stack applications, AI/ML solutions, cloud infrastructure and game systems.<br><br>
+                                I'm the solo founder of <strong>Collabula</strong>, a real-time collaborative LaTeX editor with AI-assisted writing and CRDT-based co-editing — a full SaaS product built end-to-end with Next.js, TypeScript, Supabase, and Stripe. Through this project, I've learned that engineering decisions create meaningful impact for users, whether through performance, intuitive design, or thoughtful architecture.<br><br>
+                                I thrive in environments that value learning, collaboration, and ownership. Completing my MSc in Computer Science &amp; Engineering at Instituto Superior Técnico (graduating 2026), I'm actively seeking software engineering internships and new grad opportunities with teams who care about innovation, clarity, and long-term quality.
+                        </span>
                         <!--
                         <div class="cv">
                             <a href="files/resume.pdf" download="gv-resume.pdf"><button>Download <span class="colors">Resume</span></button></a>
@@ -813,7 +817,8 @@
     <script src="js/index.js"></script>
     <!--particles script-->
     <script>
-  particlesJS("particles", {"particles":{"number":{"value":40,"density":{"enable":true,"value_area":800}},"color":{"value":"#04A777"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":0.5,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":3,"random":true,"anim":{"enable":false,"speed":30,"size_min":0.1,"sync":false}},"line_linked":{"enable":true,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":4,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});
+  window.__particlesConfig = {"particles":{"number":{"value":40,"density":{"enable":true,"value_area":800}},"color":{"value":"#04A777"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":0.5,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":3,"random":true,"anim":{"enable":false,"speed":30,"size_min":0.1,"sync":false}},"line_linked":{"enable":true,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":4,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true};
+  particlesJS("particles", window.__particlesConfig);
     </script>
 
 </body>
