@@ -245,33 +245,49 @@
         <!--portfolio-->
         <div id="portfolio" class="section" style="display:none;">
             <div class="portfolio-header"> <span class="color"> My </span> Portfolio</div>
-            <!--grid-->
             <div class="project-container">
-                <!--grid-->
-                <div class="project project-highlight">
-                    <img src="images/editor-preview.png" alt="Collabula">
-                    <div class="header-container">
-                        <h2><a href="https://www.getcollabula.com/" target="_blank">Collabula</a></h2>
+                <div class="project project-highlight featured-project">
+                    <div class="featured-images">
                         <a href="https://www.getcollabula.com/" target="_blank">
-                            <img src="images/colb-icon.png" class="github-icon" alt="collabula-icon">
+                            <img src="images/collabula-hero.png" alt="Collabula Landing Page">
+                        </a>
+                        <a href="https://www.getcollabula.com/" target="_blank">
+                            <img src="images/editor-preview.png" alt="Collabula Editor">
                         </a>
                     </div>
-                    <div class="tech-stack">
-                        <span class="tech-badge" title="Next.js"><i class="devicon-nextjs-plain"></i> Next.js</span>
-                        <span class="tech-badge" title="React"><i class="devicon-react-original colored"></i> React</span>
-                        <span class="tech-badge" title="TypeScript"><i class="devicon-typescript-plain colored"></i> TypeScript</span>
-                        <span class="tech-badge" title="TailwindCSS"><i class="devicon-tailwindcss-original colored"></i> Tailwind</span>
-                        <span class="tech-badge" title="Supabase"><i class="devicon-supabase-plain colored"></i> Supabase</span>
-                        <span class="tech-badge" title="Vercel AI SDK"><i class="devicon-vercel-original"></i> Vercel AI</span>
-                        <span class="tech-badge" title="Clerk"> Clerk</span>
-                        <span class="tech-badge" title="Liveblocks"> Liveblocks</span>
-                        <span class="tech-badge" title="Stripe"> Stripe</span>
+                    <div class="project-content">
+                        <div class="header-container" style="justify-content: flex-start;">
+                            <a href="https://www.getcollabula.com/" target="_blank" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
+                                <img src="images/colb-icon.png" class="github-icon" alt="collabula-icon" style="margin: 0;">
+                                <h2 style="margin: 0;">Collabula</h2>
+                            </a>
+                        </div>
+                        <div class="tech-stack">
+                            <span class="tech-badge" title="Next.js"><i class="devicon-nextjs-plain"></i> Next.js</span>
+                            <span class="tech-badge" title="React"><i class="devicon-react-original colored"></i> React</span>
+                            <span class="tech-badge" title="TypeScript"><i class="devicon-typescript-plain colored"></i> TypeScript</span>
+                            <span class="tech-badge" title="TailwindCSS"><i class="devicon-tailwindcss-original colored"></i> Tailwind</span>
+                            <span class="tech-badge" title="Supabase"><i class="devicon-supabase-plain colored"></i> Supabase</span>
+                            <span class="tech-badge" title="Vercel AI SDK"><i class="devicon-vercel-original"></i> Vercel</span>
+                            <span class="tech-badge" title="Cloudflare Workers"><i class="devicon-cloudflare-plain colored"></i> Workers</span>
+                            <span class="tech-badge" title="Cloudflare R2"><i class="devicon-cloudflare-plain colored"></i> R2</span>
+                            <span class="tech-badge" title="Clerk"> Clerk</span>
+                            <span class="tech-badge" title="Liveblocks"> Liveblocks</span>
+                            <span class="tech-badge" title="Stripe"> Stripe</span>
+                        </div>
+                        <h4>Feb 2026 - Present
+                            <span class="team-size">Founder</span>
+                        </h4>
+                        <div class="project-description" style="font-size: 0.95rem; line-height: 1.55; opacity: 0.95;">
+                            <p style="margin-bottom: 15px;">Collabula is a production SaaS built to replace legacy LaTeX collaboration tools — eliminating per-collaborator pricing, server-side compilation costs, and vendor lock-in on AI features. Designed, built, and shipped independently from concept to public waitlist.</p>
+                            <ul style="display: flex; flex-direction: column; gap: 8px;">
+                                <li><strong>Client-Side Compilation Pipeline:</strong> Reduced per-compile server cost to zero and enabled offline document builds by architecting a Web Worker pipeline that executes a WASM-based LaTeX engine entirely within the browser, keeping compilation off the Vercel critical path entirely.</li>
+                                <li><strong>Edge Package Cache:</strong> Eliminated repeated origin fetches to tug.org and solved Vercel's read-only filesystem limitation by deploying a Cloudflare Worker backed by R2 object storage, turning every cold package miss into a persistent globally-distributed write — delivering cache hits to subsequent compiles worldwide at zero egress cost.</li>
+                                <li><strong>Distributed Collaboration Engine:</strong> Delivered sub-second, conflict-free multi-user editing at zero marginal server cost by synchronizing a Yjs CRDT document model across collaborators via Liveblocks WebSockets, with CodeMirror 6 rendering state locally and Vercel handling only access control.</li>
+                                <li><strong>Multi-Provider AI Assistant:</strong> Built a real-time AI writing and debugging assistant natively inside the LaTeX editor by implementing the Vercel AI SDK to stream BYOK LLM completions from Anthropic and OpenAI via edge-deployed Next.js API proxies, with user keys encrypted at rest in Supabase.</li>
+                            </ul>
+                        </div>
                     </div>
-                    <h4>Feb 2026 - Present
-                        <span class="team-size">Founder</span>
-                    </h4>
-                    <p>An online LaTeX editor where your universe of ideas converge. Real-time co-editing, AI-powered assistance, and unlimited collaborators — the Overleaf alternative built for teams.</p>
-                    <p>Built the entire platform end-to-end as a full-stack application with Next.js and TypeScript. Designed and implemented a real-time collaborative editing system using CRDTs and WebSockets, integrated multi-provider AI assistance for writing and debugging, set up authentication and role-based access, and architected the PostgreSQL database layer with Supabase. Handled payment processing with Stripe and deployed the product through to a public waitlist launch.</p>
                 </div>
                 <div class="project">
                     <img src="images/burndown.jpg" alt="ScrumGPI">
