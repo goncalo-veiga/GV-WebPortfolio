@@ -508,18 +508,13 @@ body:not(.particles-bg) #particles {
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
 }
 
-.project > img {
-  width: 100%;
+.project > img,
+.project > video {
+  width: calc(100% + 40px);
+  margin: -20px -20px 12px -20px;
   height: 200px;
   object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 12px;
-  transition: transform 0.5s ease, object-fit 0.5s ease;
-}
-
-.project > img:hover {
-  object-fit: contain;
-  transform: scale(1.1);
+  border-radius: 16px 16px 0 0;
 }
 
 .project-icon {
@@ -626,7 +621,7 @@ body:not(.particles-bg) #particles {
 
 .header-container {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 }
 
@@ -755,7 +750,8 @@ body:not(.particles-bg) #particles {
   display: block;
 }
 
-.featured-images img {
+.featured-images img,
+.featured-images video {
   width: 100%;
   height: auto;
   border-radius: 12px;
@@ -764,7 +760,8 @@ body:not(.particles-bg) #particles {
   transition: opacity 0.2s ease;
 }
 
-.featured-images a:hover img {
+.featured-images a:hover img,
+.featured-images a:hover video {
   opacity: 0.88;
 }
 
@@ -773,6 +770,14 @@ body:not(.particles-bg) #particles {
   flex-direction: column;
   justify-content: center;
   width: 100%;
+}
+
+#collabula-project.featured-project {
+  align-items: flex-start;
+}
+
+#collabula-project .project-content {
+  justify-content: flex-start;
 }
 
 @media (max-width: 900px) {
